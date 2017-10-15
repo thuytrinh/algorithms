@@ -10,7 +10,8 @@ public class Solution {
     if (head == null) {
       return null;
     }
-    return reverseRecursively(head, head.next);
+    // return reverseRecursively(head, head.next);
+    return reverseIteratively(head);
   }
 
   /**
@@ -30,5 +31,25 @@ public class Solution {
     node.next = null;
     tail.next = node;
     return r;
+  }
+
+  private ListNode reverseIteratively(ListNode head) {
+    // A -> B -> C -> D
+    // A <- B
+    //      B <- C
+    //           C <- D
+    ListNode node = head;
+    ListNode tail = head.next;
+    head.next = null;
+    while (tail != null) {
+      // To swap.
+      ListNode tailNext = tail.next;
+      tail.next = node;
+
+      // To move.
+      node = tail;
+      tail = tailNext;
+    }
+    return node;
   }
 }
