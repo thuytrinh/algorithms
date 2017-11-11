@@ -6,6 +6,9 @@ import java.util.*
 typealias NextIndex = Int
 typealias IntValue = Int
 
+/**
+ * https://leetcode.com/problems/construct-binary-tree-from-string/description/
+ */
 class Solution {
   private fun String.nextInt(index: Int): Pair<IntValue, NextIndex> {
     // Ex:
